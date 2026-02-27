@@ -1,6 +1,6 @@
 //go:build js && wasm
 
-package primitivewasm
+package main
 
 import (
 	"bytes"
