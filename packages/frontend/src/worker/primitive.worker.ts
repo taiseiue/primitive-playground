@@ -17,7 +17,6 @@ let pendingEvent: MessageEvent | null = null;
 let wasmReady = false;
 
 self.onmessage = (e: MessageEvent) => {
-  console.log("Worker: message received", e.data);
   if (wasmReady) {
     processMessage(e);
   } else {
@@ -33,7 +32,6 @@ function processMessage(e: MessageEvent) {
     imageBytes,
     params,
     (progress: number, svg: string, err: string | null) => {
-      console.log("Worker: callback called", progress, err);
       if (err) {
         self.postMessage({ type: "error", error: err });
         return;
@@ -52,8 +50,6 @@ const wasmInstance = await WebAssembly.instantiateStreaming(
   go.importObject
 );
 go.run(wasmInstance.instance);
-console.log("Worker: go.run() called");
-console.log("Worker: primitiveRun =", (self as unknown as { primitiveRun: PrimitiveRun }).primitiveRun);
 
 wasmReady = true;
 if (pendingEvent) {
