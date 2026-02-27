@@ -24,6 +24,10 @@ func run(this js.Value, args []js.Value) interface{} {
 	mode := args[1].Get("mode").Int()
 	alpha := args[1].Get("alpha").Int()
 	size := args[1].Get("size").Int()
+	batch := args[1].Get("batch").Int()
+	if batch < 1 {
+		batch = 1
+	}
 	callback := args[2]
 
 	// 画像をデコードする
@@ -41,8 +45,10 @@ func run(this js.Value, args []js.Value) interface{} {
 	for i := 0; i < n; i++ {
 		model.Step(primitive.ShapeType(mode), alpha, 1)
 
-		svg := model.SVG()
-		callback.Invoke(i+1, svg, js.Null())
+		if (i+1)%batch == 0 || i+1 == n {
+			svg := model.SVG()
+			callback.Invoke(i+1, svg, js.Null())
+		}
 	}
 
 	return nil

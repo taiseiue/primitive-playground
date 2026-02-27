@@ -26,6 +26,7 @@ export function ParameterPanel({ onRun, onCancel, running, hasImage }: Props) {
   const [mode, setMode] = useState(1);
   const [alpha, setAlpha] = useState(128);
   const [size, setSize] = useState(256);
+  const [batch, setBatch] = useState(10);
 
   return (
     <div className={styles.panel}>
@@ -53,10 +54,15 @@ export function ParameterPanel({ onRun, onCancel, running, hasImage }: Props) {
         <input type="range" min={32} max={2048} step={32} value={size} onChange={(e) => setSize(Number(e.target.value))} />
       </label>
 
+      <label className={styles.field}>
+        <span>Preview interval: {batch} shapes</span>
+        <input type="range" min={1} max={100} value={batch} onChange={(e) => setBatch(Number(e.target.value))} />
+      </label>
+
       {running ? (
         <button className={styles.cancelButton} onClick={onCancel}>キャンセル</button>
       ) : (
-        <button className={styles.runButton} onClick={() => onRun({ n, mode, alpha, size })} disabled={!hasImage}>
+        <button className={styles.runButton} onClick={() => onRun({ n, mode, alpha, size, batch })} disabled={!hasImage}>
           生成
         </button>
       )}
