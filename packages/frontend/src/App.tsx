@@ -10,7 +10,7 @@ export default function App() {
   const { svg, progress, running, run, cancel } = usePrimitive();
   const [total, setTotal] = useState(100);
 
-  const handleRun = (params: { n: number; mode: number; alpha: number; size: number }) => {
+  const handleRun = (params: { n: number; mode: number; alpha: number; size: number; batch: number }) => {
     if (!imageBytes) return;
     setTotal(params.n);
     run(imageBytes, params);

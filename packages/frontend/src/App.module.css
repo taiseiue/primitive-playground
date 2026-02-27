@@ -26,3 +26,25 @@
   overflow: auto;
   padding: 24px;
 }
+
+@media (max-width: 640px) {
+  .layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 16px;
+  }
+
+  .main {
+    padding: 16px;
+    min-height: 300px;
+  }
+}

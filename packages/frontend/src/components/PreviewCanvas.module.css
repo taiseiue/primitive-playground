@@ -11,6 +11,7 @@
 .svg {
   max-width: 100%;
   max-height: calc(100vh - 80px);
+  overflow: hidden;
 }
 
 .svg svg {
@@ -41,4 +42,15 @@
 .empty {
   color: #aaa;
   font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .svg {
+    max-height: none;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
