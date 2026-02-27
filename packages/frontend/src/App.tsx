@@ -29,7 +29,7 @@ export default function App() {
         />
       </aside>
       <main className={styles.main}>
-        <PreviewCanvas svg={svg} progress={progress} total={total} />
+        <PreviewCanvas svg={svg} progress={progress} total={total} running={running} />
       </main>
     </div>
   );

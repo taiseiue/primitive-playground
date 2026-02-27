@@ -33,6 +33,11 @@
   cursor: pointer;
 }
 
+.loading {
+  color: #888;
+  font-size: 14px;
+}
+
 .empty {
   color: #aaa;
   font-size: 14px;

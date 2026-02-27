@@ -4,9 +4,10 @@ interface Props {
   svg: string | null;
   progress: number;
   total: number;
+  running: boolean;
 }
 
-export function PreviewCanvas({ svg, progress, total }: Props) {
+export function PreviewCanvas({ svg, progress, total, running }: Props) {
   const handleDownloadPng = () => {
     if (!svg) return;
     const img = new Image();
@@ -36,6 +37,8 @@ export function PreviewCanvas({ svg, progress, total }: Props) {
             <button onClick={handleDownloadPng}>PNG で保存</button>
           </div>
         </>
+      ) : running ? (
+        <div className={styles.loading}>Please wait...</div>
       ) : (
         <div className={styles.empty}>画像を選択して生成ボタンを押してください</div>
       )}
