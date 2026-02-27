@@ -9,6 +9,9 @@ export default defineConfig({
       "wasm_exec": resolve(__dirname, "public/wasm_exec.js"),
     },
   },
+  worker: {
+    format: "es",
+  },
   server: {
     headers: {
       "Cross-Origin-Opener-Policy": "same-origin",
