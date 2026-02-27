@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.svg {
+  max-width: 100%;
+  max-height: calc(100vh - 80px);
+}
+
+.svg svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.footer button {
+  padding: 6px 14px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.empty {
+  color: #aaa;
+  font-size: 14px;
+}

@@ -1,0 +1,42 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+}
+
+.runButton,
+.cancelButton {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.runButton {
+  background: #333;
+  color: #fff;
+}
+
+.runButton:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background: #e44;
+  color: #fff;
+}

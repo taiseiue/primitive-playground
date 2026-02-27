@@ -1,0 +1,28 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  padding: 24px 16px;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+}

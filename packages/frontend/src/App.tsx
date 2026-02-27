@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { usePrimitive } from "./hooks/usePrimitive";
+import { ImageDropzone } from "./components/ImageDropzone";
+import { ParameterPanel } from "./components/ParameterPanel";
+import { PreviewCanvas } from "./components/PreviewCanvas";
+import styles from "./App.module.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [imageBytes, setImageBytes] = useState<Uint8Array | null>(null);
+  const { svg, progress, running, run, cancel } = usePrimitive();
+  const [total, setTotal] = useState(100);
+
+  const handleRun = (params: { n: number; mode: number; alpha: number; size: number }) => {
+    if (!imageBytes) return;
+    setTotal(params.n);
+    run(imageBytes, params);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className={styles.layout}>
+      <aside className={styles.sidebar}>
+        <h1 className={styles.title}>Primitive</h1>
+        <ImageDropzone onLoad={setImageBytes} />
+        <ParameterPanel
+          onRun={handleRun}
+          onCancel={cancel}
+          running={running}
+          hasImage={!!imageBytes}
+        />
+      </aside>
+      <main className={styles.main}>
+        <PreviewCanvas svg={svg} progress={progress} total={total} />
+      </main>
+    </div>
+  );
 }
-
-export default App
