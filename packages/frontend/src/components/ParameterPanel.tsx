@@ -25,7 +25,7 @@ export function ParameterPanel({ onRun, onCancel, running, hasImage }: Props) {
   const [n, setN] = useState(100);
   const [mode, setMode] = useState(1);
   const [alpha, setAlpha] = useState(128);
-  const [size, setSize] = useState(512);
+  const [size, setSize] = useState(1024);
   const [inputSize, setInputSize] = useState(256);
   const [batch, setBatch] = useState(10);
 
@@ -57,7 +57,7 @@ export function ParameterPanel({ onRun, onCancel, running, hasImage }: Props) {
 
       <label className={styles.field}>
         <span>Output size: {size}px</span>
-        <input type="range" min={64} max={2048} step={64} value={size} onChange={(e) => setSize(Number(e.target.value))} />
+        <input type="range" min={128} max={2048} step={128} value={size} onChange={(e) => setSize(Number(e.target.value))} />
       </label>
 
       <label className={styles.field}>

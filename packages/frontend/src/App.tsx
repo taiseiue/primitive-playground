@@ -27,6 +27,10 @@ export default function App() {
           running={running}
           hasImage={!!imageBytes}
         />
+      <p>
+        Original: <a href="https://github.com/fogleman/primitive" target="_blank">fogleman&#x2F;primitive</a><br/>
+        This is: <a href="https://github.com/taiseiue/primitive-playground" target="_blank">taiseiue&#x2F;primitive-playground</a>
+        </p>
       </aside>
       <main className={styles.main}>
         <PreviewCanvas svg={svg} progress={progress} total={total} running={running} />
