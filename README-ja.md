@@ -1,7 +1,7 @@
 # primitive-playground
 任意の画像を、幾何学図形だけで再構成するWebアプリ
 
-[English](./README-ja.md) | **Japanese**
+[English](./README.md) | **Japanese**
 
 ## What's this?
 これは任意の画像を、幾何学的な図形のみを用いて表現した画像に変換するWebアプリケーションです。WebAssemblyで動作し、完全にデバイス内で処理が行われます。

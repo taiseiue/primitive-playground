@@ -28,6 +28,8 @@ export default function App() {
           hasImage={!!imageBytes}
         />
       <p>
+        Usage: <a href="https://github.com/taiseiue/primitive-playground/blob/main/README-ja.md#usage" target="_blank">English</a> / <a href="https://github.com/taiseiue/primitive-playground/blob/main/README-ja.md#usage" target="_blank">Japanese</a> <br/>
+        <hr/>
         Original: <a href="https://github.com/fogleman/primitive" target="_blank">fogleman&#x2F;primitive</a><br/>
         This is: <a href="https://github.com/taiseiue/primitive-playground" target="_blank">taiseiue&#x2F;primitive-playground</a>
         </p>
