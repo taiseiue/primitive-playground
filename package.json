@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --filter frontend dev",
-    "build": "packages/primitive-wasm/build.sh && pnpm --filter frontend build"
+    "build": "packages/primitive-wasm/build.sh && pnpm --filter primitive-playground-frontend build",
+    "deploy": "packages/primitive-wasm/build.sh && pnpm --filter primitive-playground-frontend run deploy"
   },
   "keywords": [],
   "author": "",
