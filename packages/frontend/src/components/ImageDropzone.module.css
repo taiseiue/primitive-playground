@@ -1,13 +1,33 @@
 .dropzone {
-  border: 2px dashed #aaa;
+  border: 2px dashed #ccc;
   border-radius: 8px;
-  padding: 24px;
+  padding: 20px 12px;
   text-align: center;
   cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+  overflow: hidden;
 }
 
-.dropzone p {
-  margin: 4px 0;
+.dropzone:hover {
+  border-color: #888;
+  background-color: #fafafa;
+}
+
+.dragging {
+  border-color: #4a90d9;
+  background-color: #eef4fc;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  margin: 0;
   color: #666;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
