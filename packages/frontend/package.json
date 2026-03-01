@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "primitive-playground",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -25,7 +25,6 @@
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1",
-    "wrangler": "^4.69.0"
+    "vite": "^7.3.1"
   }
 }
