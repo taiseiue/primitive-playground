@@ -1,3 +1,4 @@
 node_modules/
 primitive.wasm
 wasm_exec.js
+.claude/settings.local.json
