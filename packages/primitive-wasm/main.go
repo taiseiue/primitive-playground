@@ -9,6 +9,7 @@ import (
 	"syscall/js"
 
 	"github.com/fogleman/primitive/primitive"
+	"golang.org/x/image/draw"
 )
 
 func run(this js.Value, args []js.Value) interface{} {
@@ -24,6 +25,7 @@ func run(this js.Value, args []js.Value) interface{} {
 	mode := args[1].Get("mode").Int()
 	alpha := args[1].Get("alpha").Int()
 	size := args[1].Get("size").Int()
+	inputSize := args[1].Get("inputSize").Int()
 	batch := args[1].Get("batch").Int()
 	if batch < 1 {
 		batch = 1
@@ -36,6 +38,9 @@ func run(this js.Value, args []js.Value) interface{} {
 		callback.Invoke(js.Null(), js.Null(), err.Error())
 		return nil
 	}
+
+	// はじめに入力画像をリサイズする
+	img = resizeImage(img, inputSize)
 
 	// primitiveを実行する
 	bg := primitive.MakeColor(primitive.AverageImageColor(img))
@@ -52,6 +57,34 @@ func run(this js.Value, args []js.Value) interface{} {
 	}
 
 	return nil
+}
+
+func resizeImage(img image.Image, maxSide int) image.Image {
+	b := img.Bounds()
+	w, h := b.Dx(), b.Dy()
+
+	// 長辺が maxSide 以下なら何もしない
+	longer := w
+	if h > w {
+		longer = h
+	}
+	if longer <= maxSide {
+		return img
+	}
+
+	// アスペクト比を維持してリサイズ
+	var newW, newH int
+	if w >= h {
+		newW = maxSide
+		newH = h * maxSide / w
+	} else {
+		newH = maxSide
+		newW = w * maxSide / h
+	}
+
+	dst := image.NewNRGBA(image.Rect(0, 0, newW, newH))
+	draw.CatmullRom.Scale(dst, dst.Bounds(), img, b, draw.Over, nil)
+	return dst
 }
 
 func main() {

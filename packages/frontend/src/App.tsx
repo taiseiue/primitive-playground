@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { usePrimitive } from "./hooks/usePrimitive";
+import { usePrimitive, type Params } from "./hooks/usePrimitive";
 import { ImageDropzone } from "./components/ImageDropzone";
 import { ParameterPanel } from "./components/ParameterPanel";
 import { PreviewCanvas } from "./components/PreviewCanvas";
@@ -10,7 +10,7 @@ export default function App() {
   const { svg, progress, running, run, cancel } = usePrimitive();
   const [total, setTotal] = useState(100);
 
-  const handleRun = (params: { n: number; mode: number; alpha: number; size: number; batch: number }) => {
+  const handleRun = (params: Params) => {
     if (!imageBytes) return;
     setTotal(params.n);
     run(imageBytes, params);

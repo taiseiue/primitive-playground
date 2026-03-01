@@ -5,6 +5,7 @@ export interface Params {
   mode: number;
   alpha: number;
   size: number;
+  inputSize: number;
   batch: number;
 }
 

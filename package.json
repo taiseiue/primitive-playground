@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter frontend dev",
+    "dev": "pnpm --filter primitive-playground-frontend dev",
     "build": "packages/primitive-wasm/build.sh && pnpm --filter primitive-playground-frontend build",
     "deploy": "packages/primitive-wasm/build.sh && pnpm --filter primitive-playground-frontend run deploy"
   },
