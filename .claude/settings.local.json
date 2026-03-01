@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm --filter frontend build:*)"
+      "Bash(pnpm --filter frontend build:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

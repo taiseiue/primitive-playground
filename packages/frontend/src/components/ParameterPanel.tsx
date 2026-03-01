@@ -66,10 +66,10 @@ export function ParameterPanel({ onRun, onCancel, running, hasImage }: Props) {
       </label>
 
       {running ? (
-        <button className={styles.cancelButton} onClick={onCancel}>キャンセル</button>
+        <button className={styles.cancelButton} onClick={onCancel}>Cancel</button>
       ) : (
         <button className={styles.runButton} onClick={() => onRun({ n, mode, alpha, size, inputSize, batch })} disabled={!hasImage}>
-          生成
+          Generate
         </button>
       )}
     </div>

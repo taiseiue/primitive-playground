@@ -32,8 +32,7 @@ export function ImageDropzone({ onLoad }: Props) {
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <p>画像をドロップ</p>
-      <p>または</p>
+      <p>Drop an image file or</p>
       <input type="file" accept="image/*" onChange={handleChange} />
     </div>
   );
